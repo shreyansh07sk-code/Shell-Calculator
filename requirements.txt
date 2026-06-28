@@ -1,0 +1,4 @@
+o google-genai
+o pandas
+o pillow
+o python-dotenv
