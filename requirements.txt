@@ -1,4 +1,4 @@
-o google-genai
-o pandas
-o pillow
-o python-dotenv
+o bash
+o curl
+o bc
+o jq
