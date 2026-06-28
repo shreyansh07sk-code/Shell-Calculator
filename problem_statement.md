@@ -1,0 +1,1 @@
+Build and evaluate a pure shell-scripting multimodal verification system. The system utilizes Bash commands, `curl`, and the Gemini API to pass image evidence alongside text claims to evaluate validation status directly in the command-line interface.
