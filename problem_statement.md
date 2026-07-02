@@ -149,7 +149,38 @@ esac
 - Makes the program easier to maintain and extend.
 
 ---
+# 🌟 Unique Features
 
+- ✔ Interactive menu-driven interface
+- ✔ Decimal arithmetic support using **bc**
+- ✔ Regex-based numeric validation
+- ✔ Handles positive, negative, and decimal values
+- ✔ Division-by-zero protection
+- ✔ User-friendly error messages
+- ✔ Lightweight and fast execution
+- ✔ Beginner-friendly Bash implementation
+- ✔ Continuous operation using loops
+- ✔ Structured code using **case statements**
+
+---
+# 🚀 Why This Project is Useful
+
+This project helps students and Linux beginners understand important Bash scripting concepts such as:
+
+- Shell programming fundamentals
+- Conditional statements
+- Loops
+- Case statements
+- User input handling
+- Regular expressions
+- Arithmetic operations
+- Error handling
+- Linux command-line programming
+- Writing secure and reliable shell scripts
+
+It also serves as a foundation for developing more advanced Linux automation and DevOps scripts.
+
+---
 ## Conclusion
 
 The Interactive CLI Shell Calculator solves common problems found in basic shell calculator scripts by implementing:
