@@ -90,9 +90,13 @@ This project is suitable for Linux beginners and cybersecurity students learning
 
 ```
 Shell-Calculator/
-│
-├── calculator.sh
-├── README.md
+│── dataset/
+│── .env.example
+│── .gitignore
+│── calculator.sh
+│── problem_statement.md
+│── README.md
+└── requirements.txt
 └── LICENSE (optional)
 ```
 
