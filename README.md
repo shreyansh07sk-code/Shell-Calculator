@@ -1,89 +1,287 @@
-# AI-Powered Shell Insurance Claim Verification System
+# 🧮 Interactive CLI Shell Calculator
 
-## Overview
-This project is a pure command-line multi-modal insurance claim verification system built entirely with shell scripting. It analyzes customer claim conversations and uploaded images to determine whether a damage claim is supported by visual evidence. The system interfaces directly with Google's Gemini API via command-line network utilities to inspect images, extract claim descriptions, identify visible damage, estimate severity, and generate structured insurance review reports.
+A simple yet powerful **Command Line Calculator** developed using **Bash Shell Scripting**. This calculator performs basic arithmetic operations with decimal number support, input validation, and safe error handling. It is designed for beginners learning Linux shell scripting and command-line programming.
 
-## Features
-o Analyze car, laptop, and package damage claims directly from the terminal
-o Process single and multiple image paths via pure text strings
-o Extract core damage claims from raw customer chat conversations
-o Verify claims using visual evidence as the primary source of truth
-o Identify damaged object parts and specific visible issue types
-o Estimate damage severity levels on a structured scale
-o Append custom risk and hazard flags based on image quality and user history
-o Handle API rate limits and network timeouts via automated loop retries
-o Generate fully structured CSV outputs matching complex regulatory criteria
+---
 
-## System Architecture
-o Claims CSV Data and Local Binary Images
-  - Fed into the system loop
-o Image Binary Stream Preparation
-  - Encoded dynamically into serialized text compatible with network payloads
-o Gemini API Gateway Integration
-  - Dispatched via raw network requests using curl
-o Dynamic Token Stream Parsing
-  - Processed using terminal text selectors to extract key variables
-o Structured Report Output
-  - Compiled and written directly into output.csv
+# 📖 Overview
 
-## Project Workflow
-o Ingest Data: Input dataset files are loaded through the terminal execution path.
-o Execute Core App: The main application script reads claim text transcripts and converts local image assets.
-o Network Request: The script sends data payloads to Gemini models using strict command-line arguments.
-o Final Formatting: The system converts raw AI text into your final output matrix report.
+The Interactive CLI Shell Calculator is a Linux terminal-based application that allows users to perform arithmetic calculations through a menu-driven interface.
 
-## Technologies Used
-o Unix/Linux Bash Shell Scripting
-o Curl for secure gateway data transmission
-o Bc for accurate floating-point mathematical computations
-o Jq or text filtering for stream extraction
-o Git and GitHub for source code configuration management
+The project demonstrates:
+- Bash scripting
+- Conditional statements
+- Loops
+- Case statements
+- Regular expressions
+- Input validation
+- Error handling
+- Decimal calculations using `bc`
 
-## Dataset
-The system processes data files organized within a dataset folder path:
-o claims.csv: Input file containing user IDs, chat text transcripts, and image paths.
-o sample_claims.csv: Baseline labeled dataset used for debugging and pre-evaluations.
-o user_history.csv: Historical metrics mapping prior rejection ratios and hazard indices.
-o evidence_requirements.csv: Minimum evidence checklists categorized by object domains.
-o images directory: Contains the physical image frames referenced inside the data sheets.
+This project is suitable for Linux beginners and cybersecurity students learning shell scripting.
 
-## Output Fields
-The system evaluates each row and writes a structured array of fourteen columns to output.csv in this exact order:
-o user_id
-o image_paths
-o user_claim
-o claim_object
-o evidence_standard_met
-o evidence_standard_met_reason
-o risk_flags
-o issue_type
-o object_part
-o claim_status
-o claim_status_justification
-o supporting_image_ids
-o valid_image
-o severity
+---
 
-## Installation
-Open your Git Bash terminal or Linux console and run the following commands to clone the repository and configure your environment variables:
+# ✨ Features
+
+- ➕ Addition
+- ➖ Subtraction
+- ✖ Multiplication
+- ➗ Division
+- Decimal number support
+- Negative number support
+- Regular expression validation
+- Division by zero protection
+- Interactive menu
+- Infinite loop until Exit
+- Beginner-friendly code
+- Lightweight and fast
+
+---
+
+# 🏗 System Architecture
+
+```
+                User
+                  │
+                  ▼
+      Menu Driven Interface
+                  │
+                  ▼
+         Input Validation
+                  │
+                  ▼
+      Arithmetic Operation
+                  │
+                  ▼
+        Result Generation
+                  │
+                  ▼
+          Display Output
+```
+
+---
+
+# 🔄 Project Workflow
+
+1. Program starts.
+2. Calculator menu is displayed.
+3. User selects an operation.
+4. User enters two numbers.
+5. Input is validated.
+6. Selected operation is performed.
+7. Result is displayed.
+8. Menu appears again.
+9. User exits by selecting option 5.
+
+---
+
+# 💻 Technologies Used
+
+- Bash Shell
+- Linux Terminal
+- bc (Basic Calculator Utility)
+- Regular Expressions
+- GNU/Linux
+
+---
+
+# 📂 Project Structure
+
+```
+Shell-Calculator/
+│
+├── calculator.sh
+├── README.md
+└── LICENSE (optional)
+```
+
+---
+
+# 📊 Dataset
+
+This project does not use any external dataset.
+
+The user provides input values during runtime through the terminal.
+
+---
+
+# 🖥 Output
+
+Example Menu
+
+```
+==========================
+   Simple Calculator
+==========================
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+==========================
+
+Enter your choice [1-5]:
+```
+
+Example Output
+
+```
+Enter first number: 15
+Enter second number: 5
+
+✅ Result: 20
+```
+
+Division Example
+
+```
+Enter first number: 25
+Enter second number: 4
+
+✅ Result: 6.25
+```
+
+Division by Zero
+
+```
+Enter first number: 20
+Enter second number: 0
+
+❌ Error: Division by zero is mathematically undefined!
+```
+
+---
+
+# ⚙ Installation
+
+## Clone Repository
 
 ```bash
-git clone [https://github.com/shreyansh07sk/Shell-Calculator.git](https://github.com/shreyansh07sk/Shell-Calculator.git)
+git clone https://github.com/YOUR_USERNAME/Shell-Calculator.git
+```
+
+Go inside project
+
+```bash
 cd Shell-Calculator
-touch .env
-echo "GEMINI_API_KEY=YOUR_ACTUAL_API_KEY_HERE" > .env
+```
+
+Give execution permission
+
+```bash
 chmod +x calculator.sh
 ```
-# How to Use the Project
-o Step 1: Open your Git Bash terminal on Windows or standard shell on Linux.
-o Step 2: Ensure your hidden environment configuration file named .env contains your valid GEMINI_API_KEY.
-o Step 3: Ensure your dataset folder contains your input tables and matching image assets.
-o Step 4: Make your script executable by running the command chmod plus x calculator.sh in your console.
-o Step 5: Execute your script by running dot slash calculator.sh in the terminal.
-o Step 6: Select option five from the interactive command-line menu to begin the automated verification pipeline.
-o Step 7: View the generated report results by checking the newly created output.csv file.
-Author
-o Name: Shreyansh Khandelwal
-o Academic Domain: B.Tech Computer Science Engineering specializing in Cyber Security
-o Current Residence: Jaipur, Rajasthan, India
-o GitHub Profile Link: https://github.com/shreyansh07sk
+
+Run
+
+```bash
+./calculator.sh
+```
+
+---
+
+# 🚀 How to Use
+
+### Step 1
+
+Clone the repository.
+
+### Step 2
+
+Move into the project directory.
+
+### Step 3
+
+Give execute permission.
+
+### Step 4
+
+Run the script.
+
+### Step 5
+
+Select an operation.
+
+### Step 6
+
+Enter two numbers.
+
+### Step 7
+
+View the result.
+
+### Step 8
+
+Repeat calculations or choose Exit.
+
+---
+
+# 📝 Example
+
+Addition
+
+```
+Choice: 1
+
+Enter first number: 10
+
+Enter second number: 20
+
+Result: 30
+```
+
+Multiplication
+
+```
+Choice: 3
+
+Enter first number: 5
+
+Enter second number: 8
+
+Result: 40
+```
+
+Division
+
+```
+Choice: 4
+
+Enter first number: 10
+
+Enter second number: 4
+
+Result: 2.50
+```
+
+---
+
+# 🔮 Future Improvements
+
+- Scientific Calculator
+- Square Root
+- Power Function
+- Percentage Calculation
+- History Feature
+- Colorful Terminal Output
+- GUI Version
+- Save Calculation Logs
+- Expression Evaluation
+- Keyboard Shortcut Support
+
+---
+
+# 👨‍💻 Author
+
+**Shreyansh Khandelwal**
+
+Cybersecurity Student
+
+GitHub: https://github.com/YOUR_USERNAME
+
+---
+
+# 📜 License
+
+This project is open-source and available under the MIT License.
