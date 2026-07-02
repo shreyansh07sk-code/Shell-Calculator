@@ -2,29 +2,163 @@
 
 ## Interactive CLI Shell Calculator
 
-### Problem
+### Problem 1: Invalid Menu Selection
 
-Performing basic arithmetic operations in a Linux terminal often requires using external utilities or manually writing commands. Beginners learning Bash scripting also need a practical project to understand concepts such as loops, conditional statements, case statements, input validation, regular expressions, and error handling.
+Users may enter an invalid menu option (such as 6, 0, or letters), causing unexpected behavior.
 
-Many simple calculator scripts do not validate user input, lack decimal number support, or fail to handle errors such as division by zero, resulting in incorrect output or unexpected behavior.
+**Solution Used in Code**
 
-### Objective
+```bash
+if [[ ! "$choice" =~ ^[1-4]$ ]]; then
+    echo "❌ Invalid choice! Please select an option between 1 and 5."
+    continue
+fi
+```
 
-The objective of this project is to develop a menu-driven Command Line Interface (CLI) calculator using Bash Shell Scripting that performs basic arithmetic operations safely and efficiently.
+**Result**
+- Accepts only valid menu options.
+- Prevents unexpected program execution.
 
-The calculator should:
-- Provide an interactive menu for users.
-- Perform addition, subtraction, multiplication, and division.
-- Support both integer and decimal numbers.
-- Validate user input using regular expressions.
-- Prevent invalid numeric entries.
-- Handle division-by-zero errors gracefully.
-- Continue running until the user chooses to exit.
+---
 
-### Proposed Solution
+### Problem 2: Invalid Number Input
 
-The proposed solution is an interactive Bash shell application that repeatedly displays a menu, accepts user input, validates the entered values, performs the selected arithmetic operation using the `bc` utility for decimal calculations, and displays the result. The program includes proper error handling and input validation to ensure reliable and accurate execution.
+Users may enter letters or special characters instead of numbers.
 
-### Expected Outcome
+**Solution Used in Code**
 
-The project provides a lightweight, efficient, and beginner-friendly command-line calculator that demonstrates the core concepts of Bash scripting. It helps users perform accurate arithmetic calculations while learning Linux shell programming, input validation, and error handling techniques.
+```bash
+if ! [[ "$num1" =~ ^-?[0-9]+(\.[0-9]+)?$ && "$num2" =~ ^-?[0-9]+(\.[0-9]+)?$ ]]; then
+    echo "❌ Invalid input! Please enter valid numeric values."
+    continue
+fi
+```
+
+**Result**
+- Accepts only valid numeric values.
+- Supports integers, negative numbers, and decimals.
+
+---
+
+### Problem 3: Decimal Calculation Support
+
+Bash arithmetic supports only integers by default.
+
+**Solution Used in Code**
+
+```bash
+result=$(echo "$num1 + $num2" | bc)
+```
+
+and
+
+```bash
+result=$(echo "scale=2; $num1 / $num2" | bc)
+```
+
+**Result**
+- Performs accurate decimal calculations.
+- Displays results up to two decimal places.
+
+---
+
+### Problem 4: Division by Zero
+
+Dividing by zero causes mathematical errors.
+
+**Solution Used in Code**
+
+```bash
+is_zero=$(echo "$num2 == 0" | bc)
+
+if [ "$is_zero" -eq 1 ]; then
+    echo "❌ Error: Division by zero is mathematically undefined!"
+else
+    result=$(echo "scale=2; $num1 / $num2" | bc)
+fi
+```
+
+**Result**
+- Prevents invalid calculations.
+- Displays a meaningful error message instead of crashing.
+
+---
+
+### Problem 5: Continuous Calculator Usage
+
+Users should not have to restart the program after every calculation.
+
+**Solution Used in Code**
+
+```bash
+while true
+do
+    ...
+done
+```
+
+**Result**
+- Calculator keeps running until the user chooses Exit.
+
+---
+
+### Problem 6: Safe Program Exit
+
+The application should terminate only when the user selects Exit.
+
+**Solution Used in Code**
+
+```bash
+if [ "$choice" -eq 5 ] 2>/dev/null; then
+    echo "Exiting Calculator. Goodbye!"
+    break
+fi
+```
+
+**Result**
+- Allows users to exit safely.
+- Prevents accidental termination.
+
+---
+
+### Problem 7: Organized Arithmetic Operations
+
+Handling multiple arithmetic operations using many `if` statements makes the code difficult to maintain.
+
+**Solution Used in Code**
+
+```bash
+case $choice in
+    1)
+        result=$(echo "$num1 + $num2" | bc)
+        ;;
+    2)
+        result=$(echo "$num1 - $num2" | bc)
+        ;;
+    3)
+        result=$(echo "$num1 * $num2" | bc)
+        ;;
+    4)
+        ...
+        ;;
+esac
+```
+
+**Result**
+- Improves code readability.
+- Makes the program easier to maintain and extend.
+
+---
+
+## Conclusion
+
+The Interactive CLI Shell Calculator solves common problems found in basic shell calculator scripts by implementing:
+- Input validation using Regular Expressions (Regex)
+- Decimal arithmetic using the `bc` utility
+- Division-by-zero protection
+- Menu validation
+- Continuous execution with loops
+- Structured decision-making using `case`
+- User-friendly error messages
+
+These features make the calculator reliable, secure, and suitable for learning Bash Shell Scripting.
