@@ -162,7 +162,7 @@ Enter second number: 0
 ## Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Shell-Calculator.git
+git clone https://github.com/Shreyansh07sk-code/Shell-Calculator.git
 ```
 
 Go inside project
